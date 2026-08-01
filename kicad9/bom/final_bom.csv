@@ -1,0 +1,16 @@
+Final BOMs (consolidated): kicad9/bom/final_bom.csv
+Reference,Qty,Part,Description,Footprint,Manufacturer_PN
+ESP32,1,ESP32-S3-WROOM-1U,ESP32-S3-WROOM-1U module,Espressif:ESP32-S3-WROOM-1U,ESP32-S3-WROOM-1U
+CAM,1,OV2640,OV2640 camera module,Generic:CAM_OV2640,OV2640
+4G_MOD,1,ML307C,ML307C 4G module (daughterboard),Module:ML307C,ML307C
+CHG,1,BQ25895,BQ25895 charger + power-path management,TI:BQ25895,BQ25895
+BMS,1,DW01+FS8205A,Battery protection IC + dual MOSFETs,DW01-FS8205A,FS8205A
+MOTOR_DRV,1,TB6612FNG,Dual H-bridge motor driver,Rohm:TB6612FNG,TB6612FNG
+MIC,2,LMA3729T,LMA3729T MEMS microphone,Micro:LMA3729T,LMA3729T
+DISP,2,GC9D01N,GC9D01N 160x160 SPI display,Generic:SPI_DISPLAY,GC9D01N
+TOF,3,VL53L1X,VL53L1X ToF sensor,ST:VL53L1X,VL53L1X
+I2C_MUX,1,TCA9548A,I2C multiplexer,TI:TCA9548A,TCA9548A
+NFC,1,PN532,PN532 NFC controller (I2C),NXP:PN532,PN532
+POGO,1,POGO3,3-pin pogo pad footprint,Generic:POGO_3,Keystone_5000
+BAT,1,JST_B2B-PH,2-pin battery connector,JST:B2B-PH,JST_B2B-PH
+
