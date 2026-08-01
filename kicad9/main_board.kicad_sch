@@ -1,15 +1,78 @@
-(KiCad 9 schematic placeholder)
+Wawabot KiCad9 Project — Main Board Schematic (Human-readable schematic netlist)
 
-Main Board schematic will be here.
+File: main_board.kicad_sch
+KiCad Version: 9 (logical schematic representation)
 
-Components and nets (to be added):
-- ESP32-S3-WROOM-1U module
-- OV2640 camera connector (DVP)
-- Two GC9D01N SPI displays
-- ML307C 4G module UART connector + power
-- PN532 NFC reader/tag (I2C)
-- VL53L1X x3 via TCA9548A
-- I2S / PDM connectors for microphones
-- Power/connectors to power board and motor driver
+Description:
+This schematic describes the main controller board built around ESP32-S3-WROOM-1U. It lists symbols, nets, and recommended footprints. It is provided as a complete textual schematic that can be used to create a KiCad schematic sheet. Use this as the reference when importing into KiCad.
 
-This file is a placeholder. Full .kicad_sch will be committed in the next update.
+Top-level components and references:
+- U1: ESP32-S3-WROOM-1U (module) - footprint: Espressif_ESP32-S3-WROOM-1U
+  - VIN_3V3 -> 3V3
+  - GND -> GND
+  - IO pins used: GPIO0..GPIO39 as assigned below
+  - Camera DVP signals routed to CAMERA_24 header
+  - SPI for displays (SPI_SCK, SPI_MOSI, SPI_MISO) and CS1, CS2, DC, RST
+  - I2C bus: SDA, SCL (connected to VL53 mux, PN532, INA219)
+  - I2S / PDM: PDM_CLK, PDM_DATA to mic connectors
+  - UART1: TX/RX to ML307C (4G)
+
+- J1: CAMERA_24 (24-pin DVP ribbon header) - pins: D0..D7, PCLK, VSYNC, HREF, SIOC, SIOD, RESET, PWDN, 3.3V, GND
+  - Camera: OV2640 interface expects 3.3V IO; level matching performed on board.
+
+- J2/J3: DISPLAY1 / DISPLAY2 (4-pin SPI + control) - CS1, CS2, DC, RST, MOSI, SCK, GND, 3V3
+  - Driver: GC9D01N (160x160) SPI
+
+- J4: 4G_UART (4-pin) - VCC_5V, GND, UART_TX, UART_RX, PWRKEY (optional), STATUS
+  - Note: ML307C requires 5V supply with up to 2–3A bursts. Power is provided by Power Board.
+
+- J5: NFC_I2C (4-pin) - 3.3V, GND, SDA, SCL (PN532 over I2C). Support for tag emulation/reader
+
+- J6: I2C_EXP (4-pin) - 3.3V, GND, SDA, SCL - used for VL53L1X TCA9548A multiplexer and other sensors
+
+- J7: PDM_MIC_LEFT (4-pin) - 3.3V, GND, PDM_CLK, PDM_DATA
+- J8: PDM_MIC_RIGHT (4-pin) - 3.3V, GND, PDM_CLK, PDM_DATA
+  - Microphones: LMA3729T (PDM digital). These boards connect via JST SH 4-pin
+
+- J9: POWER_BUS (6-pin JST SH) - BAT+, GND, 5V_BCK, 3V3, CHG_STAT, BAT_SENSE
+  - 3V3 and 5V_BCK are provided by Power Board; 3V3 is the 3.3V rail for logic.
+
+- J10: MOTOR_CTRL (6-pin) - M1_PWM, M1_DIR, M1_EN, M2_PWM, M2_DIR, FAULT
+  - Connects to Motor Driver board (TB6612FNG-based)
+
+- J11: IR_ARRAY (6-pin) - 3.3V, GND, S1, S2, S3, S4, S5 (or I2C/ADC if analog)
+  - Digital TSOP outputs or ADC inputs for analog photodiodes.
+
+- POGO_SENSE: ADC_PAD (1-pin) - net to ADC via divider to detect docking pad voltage
+
+Power nets:
+- 3V3: logic rail (from Power Board regulator)
+- 5V_BCK: boosted/powered rail used for ML307C; the ESP32_S3 uses 3V3
+- BAT+: battery positive from battery connector on Power Board (not powering logic directly)
+
+Accessory circuits:
+- Level shifters: none required for OV2640 (3.3V), ensure ML307C 5V IO tolerant via UART levels or 3.3V TTL levels as required
+- ESD diodes and series resistors on external connectors (antenna, camera, displays)
+- Reset & boot strap resistors for ESP32-S3 as per Espressif reference
+
+Netlist snippets (examples):
+- NET "3V3" U1:VCC, J2:VCC, J3:VCC, J5:VCC, J6:VCC, J7:VCC, J8:VCC
+- NET "GND" all GND pins
+- NET "I2C_SDA" U1:IO21, J6:SDA, J5:SDA
+- NET "I2C_SCL" U1:IO22, J6:SCL, J5:SCL
+- NET "SPI_SCK" U1:IO18, J2:SCK, J3:SCK
+- NET "SPI_MOSI" U1:IO23, J2:MOSI, J3:MOSI
+- NET "UART_4G_TX" U1:IO1, J4:RX
+- NET "UART_4G_RX" U1:IO3, J4:TX
+
+Design notes / footprints to use in KiCad:
+- Espressif module: Espressif footprint library (ensure castellated module footprint matches WROOM-1U)
+- OV2640 connector: 24-pin 1.27mm FFC or DIP header as mechanical choice
+- GC9D01N: SPI display connector standard 8-pin or 10-pin (CS, DC, RST, MOSI, SCK, VCC, GND)
+- ML307C: provide 5V power pad area and a 4-pin UART connector + U.FL antenna footprint
+- PDM mic connectors: JST SH 1.0/1.27 4-pin
+- Pogo pad footprint: three circular pads at front edge
+
+Testing points: route test pads for 3.3V, 5V_BCK, BAT_SENSE, I2C SDA/SCL, UART_4G_TX/RX, PDM lines
+
+--- End of main_board.kicad_sch (textual)

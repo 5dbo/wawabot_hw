@@ -1,0 +1,6 @@
+BOMs (CSV): bom/ir_board_bom.csv
+Reference, Qty, Part, Description, Footprint, Supplier_PN
+TSOP1..TSOP5,5,TSOP38238,38kHz IR receiver (TSOP),SMD_TSOP,TSOP38238
+J1,1,JST6,6-pin JST SH connector,Conn:JST_SH_6,JST_6
+POGO1,1,POGO3,3x pogo pad footprint,POGO_3,Keystone_5000
+

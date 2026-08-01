@@ -1,11 +1,23 @@
-(KiCad 9 schematic placeholder)
+Motor Driver Schematic (textual): motor_driver.kicad_sch
 
-Motor Driver board schematic will be here.
+Components:
+- U1,U2: TB6612FNG dual H-bridge driver (two drivers for two motors can be one TB6612 per motor or one chip for both motors; TB6612 contains two channels -> use one TB6612 per two motors meaning a single TB6612FNG can drive two motors. We'll use one TB6612FNG for both motors.)
+- J1: MOTOR_PWR (2-pin) - BAT+, GND
+- J2: M1_OUT (2-pin) - Motor 1 (+ and -)
+- J3: M2_OUT (2-pin) - Motor 2 (+ and -)
+- J4: CTRL (6-pin) - M1_PWM, M1_DIR, STBY/EN, M2_PWM, M2_DIR, FAULT
+- R_sense: series shunt per motor optional for current sense (0.05 ohm) with INA amplifier to report to main board ADC or INA219
 
-Components (to be added):
-- Dual H-bridge (VNH5019 or similar depending on finalized motor current)
-- Motor power connectors (2x)
-- Current sense per motor
-- Logic connector to main board (PWM, DIR, EN, FAULT)
+Notes:
+- TB6612FNG VCC pin supplied from 5V_BCK or 3.3V depending on motor voltage; for 3-6V motors use BAT+ through proper supply or motor driver supply pin
+- Include large decoupling capacitors near motor supply and VM pin
+- TB6612 requires STBY pin pulled high to enable
 
-This file is a placeholder. Full .kicad_sch will be committed in the next update.
+Netlist highlights:
+- NET VM: motor supply -> J1:BAT+
+- NET GND: common
+- NET M1_A/M1_B: outputs to J2
+
+Design notes:
+- Use wide traces for motor outputs (>=1.5mm)
+- Place TB6612 close to motor connectors

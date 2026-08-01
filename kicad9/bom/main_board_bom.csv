@@ -1,0 +1,11 @@
+BOMs (CSV): bom/main_board_bom.csv
+Reference, Qty, Part, Description, Footprint, Supplier_PN
+U1,1,ESP32-S3-WROOM-1U,Espressif ESP32-S3-WROOM-1U module,Espressif:ESP32-S3-WROOM-1U,ESP32-S3-WROOM-1U
+U_CAM,1,OV2640,OV2640 camera module,Generic:CAM_OV2640,OV2640
+U_4G,1,ML307C,ML307C 4G module (UART),Module:ML307C,ML307C
+U_NFC,1,PN532,PN532 NFC module (I2C),Generic:PN532,PN532
+U_VL53MUX,1,TCA9548A,I2C multiplexer for VL53L1X,TI:TCA9548A,TCA9548A
+J1,2,GC9D01N,160x160 SPI display,Generic:SPI_DISPLAY,GC9D01N
+J_POGO,1,POGO3,3-pin pogo pad footprint,Generic:POGO_3,Keystone_5000
+J_PWR,1,JST6,6-pin JST SH,Conn:JST_SH_6,JST_6
+

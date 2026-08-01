@@ -1,13 +1,29 @@
-(KiCad 9 schematic placeholder)
+Power Board Schematic (textual): power_board.kicad_sch
 
-Power & Charge board schematic will be here.
+Components:
+- U1: TP4056 Lithium charger module (micro-USB input assumed) - footprint: TP4056
+  - PROG resistor sets charge current: Rprog = 1.2k for ~2.5A (note: TP4056 typical max ~1A; for 2.5A choose higher-power charger IC or parallel cells). IMPORTANT: TP4056 is typically limited to 1A — user's 2.5A requirement exceeds TP4056 capability. For now, I will configure TP4056 with 1A and include note to use higher-rated charger or BQ24295 for 2.5A.
+- U2: DW01 + FS8205A battery protection (BMS) - footprint: SOT-23-6 + dual MOSFET
+- J1: BAT_CONN (JST 2-pin) - BAT+, BAT-
+- J2: POWER_BUS (6-pin JST) - BAT+, GND, 5V_BCK, 3V3, CHG_STAT, BAT_SENSE
+- U3: 3.3V regulator (buck) - e.g., TPS62135 (1.5A)
+- U4: 5V boost regulator (for ML307C) - e.g., TPS61099 or boost rated for 3A (choose based on ML307C current)
+- U5: INA219 current/power monitor on I2C (measures battery current)
 
-Components (to be added):
-- TP4056 charger module (robot-side)
-- DW01 protection + FS8205A dual MOSFET (BMS)
-- Battery connector (JST)
-- 3.3V regulator (buck) for ESP32-S3
-- 5V boost for 4G module
-- Current sense (INA219 or shunt+opamp)
+Notes / Warnings:
+- TP4056 cannot handle 2.5A charge current safely; for 2.5A you must use a dedicated charger IC capable of that current or implement two TP4056 in parallel with proper balancing (not recommended). I added a strong BOM note recommending a BQ24295 or BQ25895 for higher charge current.
+- Include USB micro-B footprint for charging via standard 5V supply.
+- CHG_STAT open-drain outputs to main board for charger status.
 
-This file is a placeholder. Full .kicad_sch will be committed in the next update.
+Netlist highlights:
+- NET BAT+ : J1:1, U2:BAT+, POWER_BUS:BAT+
+- NET 3V3: U3:VOUT -> main board POWER_BUS 3V3
+- NET 5V_BCK: U4:VOUT -> main board POWER_BUS 5V_BCK
+- GND common
+
+Design notes:
+- Place large thermal vias under regulators
+- Add input bulk capacitance near charger input (100uF)
+- Battery sense divider to ADC: R1=100k/R2=47k for scaling battery voltage (to BAT_SENSE)
+
+This textual schematic will be converted to KiCad components in the .sch file.

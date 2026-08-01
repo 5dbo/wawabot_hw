@@ -1,0 +1,6 @@
+BOMs (CSV): bom/mic_bom.csv
+Reference, Qty, Part, Description, Footprint, Supplier_PN
+U1,2,LMA3729T,LMA3729T MEMS microphone,Micro_SMD_LMA3729,LMA3729T
+J1,2,JST4,4-pin JST SH connector,Conn:JST_SH_4,JST_4
+C1..,2,0.1uF,Decoupling capacitor 0603,Cap_0603,C0603
+

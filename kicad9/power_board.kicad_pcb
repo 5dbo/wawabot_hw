@@ -1,5 +1,17 @@
-(KiCad 9 PCB placeholder)
+Power Board PCB file (textual): power_board.kicad_pcb
 
-Power & Charge Board PCB outline planned size: 30mm x 25mm (per user: Option A)
+Board outline: 30mm x 25mm
+Layer count: 2
+Placement guidance:
+- J1 BAT_CONN at left edge
+- TP4056 footprint near mid-left with microUSB on left edge
+- DW01+FS8205A protection near battery connector
+- 3.3V buck (U3) center right, with inductor L1 above it and input/output caps nearby
+- 5V boost converter U4 near right edge with large input caps and output inductor
+- POWER_BUS JST 6-pin at bottom edge for harness to main board
 
-This file is a placeholder. Full .kicad_pcb will be committed in the next update.
+High current routing notes:
+- 5V_BCK traces width >= 1.0 mm
+- BAT+ heavy trace to motor driver connector (if motor power routed via power board) — we route motor power direct from battery to motor driver board in harness
+
+DRC notes: keep battery trace clear of sensitive analog nets

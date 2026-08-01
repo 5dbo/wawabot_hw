@@ -1,5 +1,16 @@
-(KiCad 9 schematic placeholder)
+Mic Board Left Schematic (textual): mic_board_left.kicad_sch
 
-Mic Board Left: LMA3729T MEMS microphone input board (PDM/I2S)
+Component:
+- U1: LMA3729T MEMS microphone (PDM output)
+- C1: 0.1uF decoupling near VDD
+- J1: PDM connector 4-pin (VDD, GND, PDM_CLK, PDM_DATA)
 
-This file is a placeholder. Full .kicad_sch will be committed in the next update.
+Notes:
+- LMA3729T recommended layout: keep small ground pour and quiet analog ground
+- Orientation: microphone acoustic port to face desired sound source
+
+Netlist:
+- VDD -> 3V3
+- GND -> GND
+- PDM_DATA -> PDM_DATA pin to main board
+- PDM_CLK -> PDM_CLK pin to main board

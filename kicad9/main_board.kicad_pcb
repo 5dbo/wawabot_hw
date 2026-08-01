@@ -1,12 +1,38 @@
-(KiCad 9 PCB placeholder)
+Main Board PCB file (textual summary / placement guide)
 
-Main Board PCB outline planned size: 50mm x 40mm (per user: Option A)
+File: main_board.kicad_pcb
+KiCad 9 - human-readable PCB description
 
-Top-level components to be placed:
-- ESP32-S3-WROOM-1U
-- OV2640 connector edge
-- two GC9D01N display connectors
-- ML307C module area / U.FL footprint for external antenna
-- Pogo-pad footprint area
+Board outline: 50.0 mm x 40.0 mm (rectangle)
+Layer count: 2 (Top/Bot)
+Keepouts:
+- Wi-Fi/BT antenna (ESP32-S3 module): keepout circle 12 mm radius around module antenna area on top layer
+- 4G antenna U.FL footprint at rear edge with 6 mm keepout
 
-This file is a placeholder. Full .kicad_pcb will be committed in the next update.
+Placement (recommended coordinates, origin at lower-left):
+- U1 ESP32-S3-WROOM-1U: center-left area (X=12mm, Y=25mm)
+- J1 CAMERA_24: top edge near center (X=25mm, Y=39mm), keep flat cable exit to top
+- J2/J3 DISPLAY connectors: right edge (stacked) near top and mid (X=48mm, Y=30mm / Y=22mm)
+- J4 4G_UART + U.FL: rear-right corner (X=46mm, Y=6mm)
+- J5 NFC I2C: bottom-left corner (X=6mm, Y=6mm) keep antenna area away from metal
+- J6 I2C_EXP: bottom edge near center
+- J7/J8 PDM_MIC connectors: top-left and top-right corners respectively (for head mic harness)
+- J9 POWER_BUS (JST 6-pin): bottom edge center (X=25mm, Y=2mm)
+- POGO pad area: front center edge (X=25mm, Y=40mm) with three 2.5mm circular pads spaced 7.5mm
+
+Zone fills:
+- Top copper pour: GND
+- Bottom copper pour: BAT+ return as needed
+
+Notes:
+- Place decoupling capacitors near ESP32 module power pins (0.1uF + 4.7uF ceramics)
+- Place ferrite bead on 3.3V rail input from power board for isolation
+- Route high current to 4G area on bottom layer with wide 2.5mm traces
+- Use thermal relief for ground via stitching; include 4-6 vias near module.
+
+DRC notes:
+- Minimum track width: 0.25 mm for signals, 1.0 mm for 5V high current traces to ML307C
+- Via diameter: 0.6 mm
+- Mounting: no mounting holes (small robot board)
+
+This is a textual representation of the PCB; import into KiCad and create footprint placements accordingly.

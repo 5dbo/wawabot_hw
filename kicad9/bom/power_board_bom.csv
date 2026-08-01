@@ -1,0 +1,9 @@
+BOMs (CSV): bom/power_board_bom.csv
+Reference, Qty, Part, Description, Footprint, Supplier_PN
+U1,1,TP4056,Li-ion charger module (micro-USB),TP4056,TP4056
+U2,1,DW01+FS8205A,Battery protection IC + dual MOSFET,BMS_DW01,FS8205A
+U3,1,TPS62135,3.3V buck regulator,TO263, TPS62135
+U4,1,BOOST_5V,5V boost regulator (3A capable),SMD_Power,BOOST_3A
+J_BAT,1,JST2,2-pin JST battery connector,JST_2,JST_B2B-PH
+J_PWR_BUS,1,JST6,6-pin JST SH,Conn:JST_SH_6,JST_6
+

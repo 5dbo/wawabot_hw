@@ -1,5 +1,11 @@
-(KiCad 9 PCB placeholder)
+IR Sensors Board PCB (textual): ir_sensors.kicad_pcb
 
-IR Sensors Board PCB outline planned size: 60mm x 10mm (per user: Option A)
+Board outline: 60mm x 10mm
+Placement guidance:
+- TSOP sensors spaced evenly across board along top edge
+- Connector J1 at rear edge (to main board) with 6-pin JST SH
+- Pogo pad area near center of front edge
 
-This file is a placeholder. Full .kicad_pcb will be committed in the next update.
+Mechanical notes:
+- Use small silkscreen indicators for left/center/right sensors
+- Route sensor outputs as short traces to connector

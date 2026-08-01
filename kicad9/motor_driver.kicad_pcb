@@ -1,5 +1,11 @@
-(KiCad 9 PCB placeholder)
+Motor Driver PCB (textual): motor_driver.kicad_pcb
 
-Motor Driver Board PCB outline planned size: 40mm x 30mm (per user: Option A)
+Board outline: 40mm x 30mm
+Placement guidance:
+- J1 motor power input on left edge
+- TB6612FNG near center with motor outputs to right edge connectors
+- CTRL connector at bottom edge connecting to main board
 
-This file is a placeholder. Full .kicad_pcb will be committed in the next update.
+Thermal notes:
+- Add thermal vias under motor power area if heat is expected
+- Use 2 oz copper if currents approach upper TB6612 limits

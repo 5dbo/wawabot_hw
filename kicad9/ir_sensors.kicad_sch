@@ -1,10 +1,16 @@
-(KiCad 9 schematic placeholder)
+IR Sensors Board Schematic (textual): ir_sensors.kicad_sch
 
-IR Sensors board schematic will be here.
+Components:
+- TSOP1..TSOP5: TSOP38238 receivers x5 with outputs S1..S5
+- J1: IR_CONN (6-pin) - 3.3V, GND, S1, S2, S3, S4, S5 (if 7-pin use S5)
+- POGO_PAD: three pad footprints for docking contact
+- Optional ADC stage: if analog photodiodes are used, include op-amp amplifiers and low-pass filters
 
-Components (to be added):
-- TSOP38238 x5 array OR photodiode amplifiers
-- Connector to main board (3.3V, GND, digital lines or I2C/ADC)
-- Pogo/contact pad footprint
+Notes:
+- TSOP outputs are active low pulses; pull-ups recommended on main board if needed
+- Place a small shield or shade over sensors to limit ambient stray light
 
-This file is a placeholder. Full .kicad_sch will be committed in the next update.
+Netlist:
+- NET 3V3: TSOPx VCC -> main board 3V3
+- NET GND: common
+- NET S1..S5: digital outputs to main board GPIOs

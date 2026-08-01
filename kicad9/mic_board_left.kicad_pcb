@@ -1,5 +1,10 @@
-(KiCad 9 PCB placeholder)
+Mic Board Left PCB (textual): mic_board_left.kicad_pcb
 
-Mic Board Left PCB outline planned size: 12mm x 9mm (per user: Option A)
+Board outline: 12mm x 9mm
+Placement:
+- U1 at center with acoustic port hole in silkscreen and keepout
+- J1 at board edge for JST SH 4-pin
 
-This file is a placeholder. Full .kicad_pcb will be committed in the next update.
+Assembly notes:
+- Reflow profile compatible (LMA3729T is reflowable)
+- Keep microphone away from motor vibrations
