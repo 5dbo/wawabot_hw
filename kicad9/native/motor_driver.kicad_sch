@@ -1,0 +1,7 @@
+(kicad_sch (version 20211014) (generator eeschema)
+# Motor Driver schematic skeleton (TB6612FNG)
+(symbol (lib_id Rohm:TB6612FNG) (at 60 40) (unit 1) (value TB6612FNG) (footprint Rohm:TB6612FNG))
+(symbol (lib_id Connector:TERMINAL2) (at 20 40) (unit 1) (value MOTOR_PWR) (footprint Connector:TERMINAL2))
+(symbol (lib_id Connector:TERMINAL2) (at 120 40) (unit 1) (value M1_OUT) (footprint Connector:TERMINAL2))
+(symbol (lib_id Connector:TERMINAL2) (at 120 80) (unit 1) (value M2_OUT) (footprint Connector:TERMINAL2))
+)

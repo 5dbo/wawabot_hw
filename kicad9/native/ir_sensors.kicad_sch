@@ -1,0 +1,5 @@
+(kicad_sch (version 20211014) (generator eeschema)
+# IR Sensors board skeleton
+(symbol (lib_id Sensor:TSOP38238) (at 40 40) (unit 1) (value TSOP38238) (footprint Sensor:TSOP38238))
+(symbol (lib_id Connector:JST_SH_6) (at 120 40) (unit 1) (value JST_SH_6) (footprint Connector:JST_SH_6))
+)

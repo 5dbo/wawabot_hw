@@ -1,0 +1,8 @@
+(kicad_pcb (version 6) (host pcbnew 6.0)
+  (general (thickness 1.6))
+  (layers (0 F.Cu) (31 B.Cu) (34 Edge.Cuts))
+  (gr_line (start 0 0) (end 40 0) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 40 0) (end 40 30) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 40 30) (end 0 30) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 0 30) (end 0 0) (layer Edge.Cuts) (width 0.15))
+)

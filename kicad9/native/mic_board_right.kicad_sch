@@ -1,0 +1,5 @@
+(kicad_sch (version 20211014) (generator eeschema)
+# Mic board right - copy of left
+(symbol (lib_id Microphone:LMA3729T) (at 30 30) (unit 1) (value LMA3729T) (footprint Micro: LMA3729T))
+(symbol (lib_id Connector:JST_4) (at 80 30) (unit 1) (value JST_4) (footprint Connector:JST_4))
+)

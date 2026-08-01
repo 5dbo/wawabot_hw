@@ -1,0 +1,20 @@
+(kicad_sch (version 20211014) (generator eeschema)
+
+$Descr A4 11693 8268
+encoding utf-8
+</Descr>
+
+# Power Board schematic - KiCad skeleton
+
+(symbol (lib_id Linear:TP4056) (at 50 40) (unit 1) (value TP4056) (footprint Battery:TP4056))
+(symbol (lib_id Device:DW01) (at 120 40) (unit 1) (value DW01) (footprint SOT-23-6))
+(symbol (lib_id Device:FS8205A) (at 120 80) (unit 1) (value FS8205A) (footprint SOT-23-6))
+(symbol (lib_id TI:BQ25895) (at 60 140) (unit 1) (value BQ25895) (footprint TI_BQ25895))
+(symbol (lib_id Linear:TPS62135) (at 80 200) (unit 1) (value TPS62135) (footprint SOT-23-6))
+
+# Nets
+(net 0 BAT+ (node (ref TP4056) (pin 1)))
+(net 1 GND)
+(net 2 3V3 (node (ref TPS62135) (pin 1)))
+
+)
