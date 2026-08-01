@@ -1,0 +1,11 @@
+(KiCad 9 schematic placeholder)
+
+Motor Driver board schematic will be here.
+
+Components (to be added):
+- Dual H-bridge (VNH5019 or similar depending on finalized motor current)
+- Motor power connectors (2x)
+- Current sense per motor
+- Logic connector to main board (PWM, DIR, EN, FAULT)
+
+This file is a placeholder. Full .kicad_sch will be committed in the next update.

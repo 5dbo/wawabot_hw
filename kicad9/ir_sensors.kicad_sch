@@ -1,0 +1,10 @@
+(KiCad 9 schematic placeholder)
+
+IR Sensors board schematic will be here.
+
+Components (to be added):
+- TSOP38238 x5 array OR photodiode amplifiers
+- Connector to main board (3.3V, GND, digital lines or I2C/ADC)
+- Pogo/contact pad footprint
+
+This file is a placeholder. Full .kicad_sch will be committed in the next update.

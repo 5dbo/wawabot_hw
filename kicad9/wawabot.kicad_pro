@@ -1,0 +1,17 @@
+encoding: UTF-8
+version: 2024-03-20
+
+# Wawabot KiCad 9 Project (skeleton)
+
+project: wawabot
+kicad_version: 9
+
+sheets:
+  - main_board.kicad_sch
+  - power_board.kicad_sch
+  - ir_sensors.kicad_sch
+  - motor_driver.kicad_sch
+  - mic_board_left.kicad_sch
+  - mic_board_right.kicad_sch
+
+notes: "Full schematic and PCB files will be added in follow-up commits. These placeholder files exist to establish project structure on branch kicad9-initial."

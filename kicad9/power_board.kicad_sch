@@ -1,0 +1,13 @@
+(KiCad 9 schematic placeholder)
+
+Power & Charge board schematic will be here.
+
+Components (to be added):
+- TP4056 charger module (robot-side)
+- DW01 protection + FS8205A dual MOSFET (BMS)
+- Battery connector (JST)
+- 3.3V regulator (buck) for ESP32-S3
+- 5V boost for 4G module
+- Current sense (INA219 or shunt+opamp)
+
+This file is a placeholder. Full .kicad_sch will be committed in the next update.

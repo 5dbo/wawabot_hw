@@ -1,0 +1,15 @@
+(KiCad 9 schematic placeholder)
+
+Main Board schematic will be here.
+
+Components and nets (to be added):
+- ESP32-S3-WROOM-1U module
+- OV2640 camera connector (DVP)
+- Two GC9D01N SPI displays
+- ML307C 4G module UART connector + power
+- PN532 NFC reader/tag (I2C)
+- VL53L1X x3 via TCA9548A
+- I2S / PDM connectors for microphones
+- Power/connectors to power board and motor driver
+
+This file is a placeholder. Full .kicad_sch will be committed in the next update.
